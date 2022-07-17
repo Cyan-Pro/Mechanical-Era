@@ -7,20 +7,12 @@ import arc.Core;
 import arc.Events;
 import arc.util.Log;
 import arc.util.Time;
-import mindustry.ctype.ContentList;
 import mindustry.game.EventType.ClientLoadEvent;
 import mindustry.mod.Mod;
 import mindustry.ui.dialogs.BaseDialog;
 
 public class MechanicalEra extends Mod{
-    public static MechanicalEraItems modItems;
-    public static MechanicalEraLiquids modLiquids;
-    public static MechanicalEraBlocks modBlocks;
-    public static final ContentList[] modContents = {
-            modItems = new MechanicalEraItems(),
-            modLiquids = new MechanicalEraLiquids(),
-            modBlocks = new MechanicalEraBlocks(),
-    };
+
     public MechanicalEra(){
         Log.info("Loaded MechanicalEra constructor.");
 
@@ -41,9 +33,8 @@ public class MechanicalEra extends Mod{
     @Override
     public void loadContent(){
         Log.info("Loading some MechanicalEra content.");
-        for (ContentList content : modContents) {
-            content.load();
+        MechanicalEraItems.load();
+        MechanicalEraLiquids.load();
+        MechanicalEraBlocks.load();
         }
     }
-
-}

@@ -1,8 +1,8 @@
 displayName: "MechanicalEra"
-name: "mekera"
-author: "[#FBC02D[]]YourName[[]]"
+name: "mechera"
+author: "[#FBC02D[]]Cyan;[[]]"
 main: "MechanicalEra.MechanicalEra"
-description: "A template for Mindustry modding. Repository is on github.com/liplum/MdtModTemplate."
-version: 1.0
-minGameVersion: 135
+description: "An EASY MOD."
+version: Test Version 0.0.1
+minGameVersion: 136
 java: true
