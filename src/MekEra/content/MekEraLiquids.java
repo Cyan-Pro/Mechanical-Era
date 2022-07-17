@@ -1,15 +1,16 @@
-package MechanicalEra.content;
+package MekEra.content;
 
 import arc.graphics.Color;
-import mindustry.ctype.ContentList;
 import mindustry.type.Liquid;
 
-public class MechanicalEraLiquids implements ContentList {
+public class MekEraLiquids {
     public static Liquid
     lubeOil;
 
-    @Override
-    public void load() {
+public MekEraLiquids() {
+
+}
+    public static void load() {
 
         lubeOil = new Liquid("lube-oil", Color.valueOf("#ffefd5")){{
             heatCapacity = 1.1f;
@@ -17,7 +18,7 @@ public class MechanicalEraLiquids implements ContentList {
             flammability = 0.9f;
             lightColor = Color.valueOf("#ffefd5");
             barColor = Color.valueOf("#ffefd5");
-            viscosity = 0.5f;
+            viscosity = 0.3f;
         }};
     }
 }
