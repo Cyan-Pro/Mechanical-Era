@@ -1,5 +1,7 @@
 package MekEra.content;
 
+import MekEra.world.blocks.defense.MekWall;
+import MekEra.world.meta.SharingHealth;
 import mindustry.content.Items;
 import mindustry.content.Liquids;
 import mindustry.gen.Sounds;
@@ -18,6 +20,9 @@ public class MekEraBlocks {
     plasticWall,plasticWallLarge,iceWall,iceWallLarge,sandWall,sandWallLarge,steelFrame,
     //production
     surfaceExtractor;
+
+    public static SharingHealth SharingHealth = new SharingHealth();
+
     public MekEraBlocks() {
 
     }
@@ -25,16 +30,17 @@ public class MekEraBlocks {
         //region defense
         int MechHealthMultiplier = 6;
 
-        plasticWall = new Wall("plastic-wall"){{
+        plasticWall = new MekWall("plastic-wall"){{
             requirements(Category.defense, ItemStack.with(MekEraItems.plastic, 6));
             health = 90 * MechHealthMultiplier;
             update = true;
-
+            kit = SharingHealth;
         }};
-        plasticWallLarge = new Wall("plastic-wall-large"){{
+        plasticWallLarge = new MekWall("plastic-wall-large"){{
             requirements(Category.defense, ItemStack.mult(plasticWall.requirements, 4));
             health = 90 * 4 * MechHealthMultiplier;
             size = 2;
+            kit = SharingHealth;
         }};
         iceWall = new Wall("ice-wall"){{
             requirements(Category.defense, ItemStack.with(MekEraItems.ice, 6));
@@ -92,6 +98,7 @@ public class MekEraBlocks {
             consumeLiquid(Liquids.water, 0.05f);
             consumeItems(ItemStack.with(Items.sand, 3));
         }};
+        //TODO
         compressionEngine = new GenericCrafter("compression-engine"){{
             requirements(Category.crafting, ItemStack.with(Items.copper, 1));
         }};

@@ -1,11 +1,11 @@
 package MekEra.world.blocks.defense;
 
-import MekEra.Kit.KitBase;
+import MekEra.world.meta.Base;
 import mindustry.world.blocks.defense.Wall;
 
 public class MekWall extends Wall {
 
-    public KitBase<MekWallBuild> component;
+    public Base<MekWallBuild> kit;
 
     public MekWall(String name) {
         super(name);
@@ -15,8 +15,8 @@ public class MekWall extends Wall {
 
         @Override
         public void updateTile() {
-            if (component != null) {
-                component.onUpdate(this);
+            if (kit != null) {
+                kit.onUpdate(this);
             }
         }
     }
